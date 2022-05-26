@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DemoSuite" parallel="tests" thread-count="2">
+	<test name="Run on Chrome">
+		<parameter name="browser" value="chrome"/>
+		<parameter name="phoneNumber" value="0962370612"/>
+		<parameter name="password" value="Hoaithu*2811"/>
+		<classes>
+			<class name="test.LogInPageTest" />
+		</classes>
+	</test>
+	
+	<test name="Run on Edge">
+		<parameter name="browser" value="edge"/>
+		<parameter name="phoneNumber" value="0962370612"/>
+		<parameter name="password" value="Hoaithu*2811"/>
+		<classes>
+			<class name="test.LogInPageTest" />
+		</classes>
+	</test>
+</suite> <!--DemoSuite-->
