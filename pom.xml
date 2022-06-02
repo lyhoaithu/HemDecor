@@ -45,6 +45,18 @@
 					<release>16</release>
 				</configuration>
 			</plugin>
+				 <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M6</version>
+          <configuration>
+       <suiteXmlFiles>
+          <!-- Suite file injection parameter from command line -->
+          <suiteXmlFile>${suiteFile}</suiteXmlFile>
+       </suiteXmlFiles>
+    </configuration>
+        </plugin>
+			
 		</plugins>
 	</build>
 
