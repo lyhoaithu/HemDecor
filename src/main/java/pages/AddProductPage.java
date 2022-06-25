@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AddProductPage extends Page {
-	public HashMap<String, By> locatorMap = readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "AddProductPage");
+	public HashMap<String, By> locatorMap = readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "AddProductPage");
 	public By btnAddThumbnailImage = locatorMap.get("btnAddThumbnailImage");
 	public By btnAddAditionalImage1 = locatorMap.get("btnAddAditionalImage1");
 	public By btnAddAditionalImage2 = locatorMap.get("btnAddAditionalImage2");

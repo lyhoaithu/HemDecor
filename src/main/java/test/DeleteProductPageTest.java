@@ -24,7 +24,7 @@ public ExcelUtils excelUtils= new ExcelUtils();
 @Parameters({"admin","adminPassword"})
 public void preCondition(String phoneNumber, String password) {
 	LogInPage logIn= new LogInPage(driver);
-	logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+	logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 	logIn.sendKeys(phoneNumber, password);
 	clickOnElemnet(logIn.btnLogIn);
 	AdminHomePage adminHomePage= new AdminHomePage(driver);

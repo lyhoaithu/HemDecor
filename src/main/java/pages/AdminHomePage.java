@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AdminHomePage extends Page {
-public HashMap<String, By> locatorMap = readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "AdminHomePage");
+public HashMap<String, By> locatorMap = readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "AdminHomePage");
 public By btnProduct = locatorMap.get("btnProduct");
 public By btnOrder = locatorMap.get("btnOrder");
 public By btnChangePassword = locatorMap.get("btnChangePassword");
@@ -28,7 +28,7 @@ public By btnHomePage= locatorMap.get("btnHomePage");
 	}
 	public void preCondition() {
 		LogInPage logIn= new LogInPage(driver);
-		logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 	    logIn.sendKeys("HemDecor", "HemDecor*1234");
 		clickOnElemnet(logIn.btnLogIn);
 	}

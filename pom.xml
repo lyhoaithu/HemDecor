@@ -37,14 +37,14 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<configuration>
-					<release>16</release>
-				</configuration>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-compiler-plugin</artifactId> -->
+<!-- 				<version>3.8.1</version> -->
+<!-- 				<configuration> -->
+<!-- 					<release>11</release> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 				 <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
@@ -52,7 +52,7 @@
           <configuration>
        <suiteXmlFiles>
           <!-- Suite file injection parameter from command line -->
-          <suiteXmlFile>${suiteFile}</suiteXmlFile>
+          <suiteXmlFile>src/main/resources/RunMainCaseWithEdge.xml</suiteXmlFile>
        </suiteXmlFiles>
     </configuration>
         </plugin>

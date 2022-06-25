@@ -55,7 +55,7 @@ public class ExcelUtils {
 	public static void writeDataInExcelFile(String sheetName) throws IOException {
 		// Create an object of File class to open xlsx file
 		File file = new File(
-				"D:\\Automation Test\\02Projects\\HemDecor\\src\\main\\java\\excelExportAndFileIO\\AutomationTestData.xlsx");
+				"D:\\AutomationTest\\02Projects\\HemDecor\\src\\main\\java\\excelExportAndFileIO\\AutomationTestData.xlsx");
 
 		// Read file using FileInputStream
 		FileInputStream inputStream = new FileInputStream(file);
@@ -74,7 +74,7 @@ public class ExcelUtils {
 
 		// Write value in excel using FileOutputStream
 		FileOutputStream outputStream = new FileOutputStream(
-				"D:\\Automation Test\\02Projects\\HemDecor\\src\\main\\java\\excelExportAndFileIO\\AutomationTestData.xlsx");
+				"D:\\AutomationTest\\02Projects\\HemDecor\\src\\main\\java\\excelExportAndFileIO\\AutomationTestData.xlsx");
 		dataWorkbook.write(outputStream);
 	}
 public By readLocatorByType(String locatorValue, String locatorType) {

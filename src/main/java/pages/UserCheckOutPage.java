@@ -16,7 +16,7 @@ public class UserCheckOutPage extends Page {
 
 	public ExcelUtils excelUtils = new ExcelUtils();
 	public HashMap<String, By> locatorMap = readLocatorFromExcle(
-			"D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx",
+			"D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx",
 			"UserCreateOrderPage");
 	public By btnThanhToanAtCart = locatorMap.get("btnThanhToanAtCart");
 	public By txtName = locatorMap.get("txtName");

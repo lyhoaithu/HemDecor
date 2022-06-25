@@ -11,7 +11,7 @@ public class UserProductDetailsPage extends Page {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-public HashMap<String, By> locatorMap= readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "UserProductDetails");
+public HashMap<String, By> locatorMap= readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "UserProductDetails");
 public By btnProductName= locatorMap.get("btnProductName");
 public By imgProduct= locatorMap.get("imgProduct");
 public By btnSize= locatorMap.get("btnSize");

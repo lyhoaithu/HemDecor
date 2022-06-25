@@ -13,7 +13,7 @@ import org.testng.annotations.DataProvider;
 import common.ExcelUtils;
 
 public class RegisterPage extends Page{
-public static HashMap<String,By> locatorMap=readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "Register");
+public static HashMap<String,By> locatorMap=readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "Register");
 
 public By txtName= locatorMap.get("txtName");
 public By txtPassword= locatorMap.get("txtPassword");

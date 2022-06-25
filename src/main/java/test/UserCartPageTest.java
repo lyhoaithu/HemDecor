@@ -23,10 +23,10 @@ public class UserCartPageTest extends TestCase {
 	@Parameters({ "phoneNumber", "password" })
 	public void preCondition(String phoneNumber, String password) {
 		LogInPage logIn = new LogInPage(driver);
-		logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 		logIn.sendKeys(phoneNumber, password);
 		clickOnElemnet(logIn.btnLogIn);
-	}
+	}	
 
 	public ExcelUtils excelUtils = new ExcelUtils();
 
@@ -56,7 +56,7 @@ public void deleteAllProductFromCart() {
 	@Test(description = "Validate add to cart successfully when adding the quantity smaller than the in stock quantity")
 	public void addCartWithSmallerQuantity() {
 		UserCartPage userCartPage= new UserCartPage(driver);
-		userCartPage.navigateToPage("http://localhost:8080/HemDecor/user_products/view_product.php?cid=TB/D02");
+		userCartPage.navigateToPage("http://localhost:8081/HemDecor/user_products/view_product.php?cid=TB/D02");
 		String instockProduct=null;
 		int randomInstockProduct;
 		List<WebElement> size= driver.findElements(userCartPage.btnSize);
@@ -89,7 +89,7 @@ public void deleteAllProductFromCart() {
 	@Test(description = "Validate add to cart successfully when adding the quantity equal to the in stock quantity")
 	public void addCartWithEqualQuantity() {
 		UserCartPage userCartPage= new UserCartPage(driver);
-		userCartPage.navigateToPage("http://localhost:8080/HemDecor/user_products/view_product.php?cid=TH01");
+		userCartPage.navigateToPage("http://localhost:8081/HemDecor/user_products/view_product.php?cid=TH01");
 		String instockProduct=null;
 		List<WebElement> size= driver.findElements(userCartPage.btnSize);
 		Random rand = new Random();
@@ -114,7 +114,7 @@ public void deleteAllProductFromCart() {
 	@Test(description = "Validate add product fail when no size is chosen", groups = "validation")
 	public void addProductWhenNoSizeIsChosen() {
 		UserCartPage userCartPage = new UserCartPage(driver);
-		userCartPage.navigateToPage("http://localhost:8080/HemDecor/user_products/view_product.php?cid=TB/D02");
+		userCartPage.navigateToPage("http://localhost:8081/HemDecor/user_products/view_product.php?cid=TB/D02");
 		clickOnElemnet(userCartPage.btnAddToCart);
 		String errorMessage = driver.findElement(userCartPage.lblErrorMessage).getText();
 		assertEquals(errorMessage, "Vui lòng chọn Size");
@@ -123,7 +123,7 @@ public void deleteAllProductFromCart() {
 	@Test(description = "Validate add product fail when add product quantity bigger than instock quantity")
 	public void addProductWithBiggerQuantity() {
 		UserCartPage userCartPage = new UserCartPage(driver);
-		userCartPage.navigateToPage("http://localhost:8080/HemDecor/user_products/view_product.php?cid=TH01");
+		userCartPage.navigateToPage("http://localhost:8081/HemDecor/user_products/view_product.php?cid=TH01");
 		String instockProduct = null;
 		String biggerInstockProductStr = null;
 		List<WebElement> size = driver.findElements(userCartPage.btnSize);
@@ -150,7 +150,7 @@ public void deleteAllProductFromCart() {
 	@Test(description = "Validate add product fail when add product with quantity equal 0")
 	public void addProductWithQuantity0() {
 		UserCartPage userCartPage = new UserCartPage(driver);
-		userCartPage.navigateToPage("http://localhost:8080/HemDecor/user_products/view_product.php?cid=TH01");
+		userCartPage.navigateToPage("http://localhost:8081/HemDecor/user_products/view_product.php?cid=TH01");
 		String instockProduct = null;
 		String biggerInstockProductStr = null;
 		List<WebElement> size = driver.findElements(userCartPage.btnSize);
@@ -170,7 +170,7 @@ public void deleteAllProductFromCart() {
 	@Test(description = "Validate add product fail when leave quantity picker blank")
 	public void addProductWhenQuantityPickerBlank() {
 		UserCartPage userCartPage = new UserCartPage(driver);
-		userCartPage.navigateToPage("http://localhost:8080/HemDecor/user_products/view_product.php?cid=TH01");
+		userCartPage.navigateToPage("http://localhost:8081/HemDecor/user_products/view_product.php?cid=TH01");
 		String instockProduct = null;
 		String biggerInstockProductStr = null;
 		List<WebElement> size = driver.findElements(userCartPage.btnSize);
@@ -188,7 +188,7 @@ public void deleteAllProductFromCart() {
 	@Test(description = "Validate adjust quantity picker to 0")
 	public void adjustQuantityPickerTo0() {
 		UserCartPage userCartPage = new UserCartPage(driver);
-		userCartPage.navigateToPage("http://localhost:8080/HemDecor/user_products/view_product.php?cid=TH01");
+		userCartPage.navigateToPage("http://localhost:8081/HemDecor/user_products/view_product.php?cid=TH01");
 		String quantityBefore= driver.findElement(userCartPage.txtQuantity).getText();
 		clickOnElemnet(userCartPage.btnSubtract);
 		String quantityAfter= driver.findElement(userCartPage.txtQuantity).getText();

@@ -24,7 +24,7 @@ public void validateNavigatingToProductPageByClickingAtMenuBar() {
 	adminHomePage.preCondition();
 	clickOnElemnet(adminHomePage.btnProduct);
 	String currentURL=driver.getCurrentUrl();
-	assertEquals(currentURL, "http://localhost:8080/HemDecor/admin_manage_product/manage_category.php");
+	assertEquals(currentURL, "http://localhost:8081/HemDecor/admin_manage_product/manage_category.php");
 
 }
 
@@ -34,7 +34,7 @@ public void validateNavigatingToProductPageByClickingOnTotalProductCard() {
 	adminHomePage.preCondition();
 	clickOnElemnet(adminHomePage.btnTotalProduct);
 	String currentURL=driver.getCurrentUrl();
-	assertEquals(currentURL, "http://localhost:8080/HemDecor/admin_manage_product/manage_category.php");
+	assertEquals(currentURL, "http://localhost:8081/HemDecor/admin_manage_product/manage_category.php");
 
 }
 
@@ -44,7 +44,7 @@ public void validateNavigatingToChangePasswordPage() {
 	adminHomePage.preCondition();
 	clickOnElemnet(adminHomePage.btnChangePassword);
 	String currentURL=driver.getCurrentUrl();
-	assertEquals(currentURL, "http://localhost:8080/HemDecor/admin_account/change-password.php");
+	assertEquals(currentURL, "http://localhost:8081/HemDecor/admin_account/change-password.php");
 
 }
 
@@ -55,7 +55,7 @@ public void validateNavigatingToHomePagePage() {
 	adminHomePage.preCondition();
 	clickOnElemnet(adminHomePage.btnHomePage);
 	String currentURL=driver.getCurrentUrl();
-	assertEquals(currentURL, "http://localhost:8080/HemDecor/admin_account/admin_homepage.php");
+	assertEquals(currentURL, "http://localhost:8081/HemDecor/admin_account/admin_homepage.php");
 }
 
 	@Test(description = "Validate Logging Out")
@@ -64,13 +64,13 @@ public void validateLoggingOut() {
 	adminHomePage.preCondition();
 	clickOnElemnet(adminHomePage.btnLogOut);
 	String currentURL=driver.getCurrentUrl();
-	assertEquals(currentURL, "http://localhost:8080/HemDecor/anon/homepage.php");
+	assertEquals(currentURL, "http://localhost:8081/HemDecor/anon/homepage.php");
 }
 
 	@DataProvider(name = "SQL Query")
 	public String[][] SQLQuery() throws IOException {
 		String[][] SQLQuery = excelUtils.getDataFromExcel(
-				"D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AdminHomePage");
+				"D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AdminHomePage");
 		return SQLQuery;
 	}
 

@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import common.ExcelUtils;
 
 public class LogInPage extends Page {
-	public HashMap<String, By> locatorMap=readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "LogIn");
+	public HashMap<String, By> locatorMap=readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "LogIn");
 	public By txtEmail=locatorMap.get("txtEmail");
 	public  By txtPassword= locatorMap.get("txtPassword");
 	public  By chbShowPassword= locatorMap.get("chbShowPassword");
@@ -32,7 +32,7 @@ public void sendKeys(String username, String password) {
 //	ExcelUtils excelUtils= new ExcelUtils();
 //    String[][] userNameAndPassword=null;
 //	try {
-//		userNameAndPassword = excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx","LogInData");
+//		userNameAndPassword = excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx","LogInData");
 //		System.out.println(Arrays.deepToString(userNameAndPassword));
 //	} catch (IOException e) {
 //		System.out.println("File Not Found");

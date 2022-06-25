@@ -9,7 +9,7 @@ import common.ExcelUtils;
 
 public class ForgetPasswordPage extends Page {
 	public HashMap<String, By> locatorMap = readLocatorFromExcle(
-			"D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "ForgetPassword");
+			"D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "ForgetPassword");
 	public By txtEmail = locatorMap.get("txtEmail");
 	public By txtTelephone = locatorMap.get("txtTelephone");
 	public By btnRetrievePassword = locatorMap.get("btnRetrievePassword");

@@ -26,7 +26,7 @@ public class AddProductPageTest extends TestCase {
 	@Parameters({"admin", "adminPassword"})
 	public void preCondition(String phoneNumber, String password) {
 		LogInPage logIn= new LogInPage(driver);
-		logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 		logIn.sendKeys(phoneNumber, password);
 		clickOnElemnet(logIn.btnLogIn);
 		AdminHomePage adminHomePage= new AdminHomePage(driver);
@@ -37,7 +37,7 @@ public class AddProductPageTest extends TestCase {
 	@DataProvider(name = "Add Product Successfully", indices = {0,1})
 	public String[][] addProductSuccessfullyData() throws IOException {
 		String[][] addProductSuccessfully = excelUtils.getDataFromExcel(
-				"D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx",
+				"D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx",
 				"AddProductSuccessfully");
 		return addProductSuccessfully;
 	}
@@ -45,7 +45,7 @@ public class AddProductPageTest extends TestCase {
 	@DataProvider(name = "Add Product With Multiple Size Successfully", indices = {2})
 	public String[][] addProductWithMultipleSizeSuccessfullyData() throws IOException {
 		String[][] addProductWithMultipleSizeSuccessfullyData = excelUtils.getDataFromExcel(
-				"D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx",
+				"D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx",
 				"AddProductSuccessfully");
 		return addProductWithMultipleSizeSuccessfullyData;
 	}
@@ -53,28 +53,28 @@ public class AddProductPageTest extends TestCase {
 	@DataProvider(name = "Add Product Fail When Leaving Field Blank At General Information Page", indices = { 0, 1 })
 	public String[][] addProductFailWhenLeavingFieldAtGeneralInformationPageBlank() throws IOException {
 		String[][] addProductWhenLeavingFieldBlankData = excelUtils.getDataFromExcel(
-				"D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AddProductFail");
+				"D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AddProductFail");
 		return addProductWhenLeavingFieldBlankData;
 	}
 
 	@DataProvider(name = "Add Product Fail When Leaving Field Blank At Details Information Page", indices = { 2, 3, 4 })
 	public String[][] addProductFailWhenLeavingFieldAtDetailsInformationPageBlank() throws IOException {
 		String[][] addProductWhenLeavingFieldBlankData = excelUtils.getDataFromExcel(
-				"D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AddProductFail");
+				"D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AddProductFail");
 		return addProductWhenLeavingFieldBlankData;
 	}
 	
 	@DataProvider(name = "Add Product Fail When Providing Invalid Information At General Information Page", indices = {5,6,7, 14, 15, 16})
 	public String[][] addProductFailWhenProvidingInvalidInformationAtGeneralInformationPage() throws IOException {
 		String[][] addProductFailWhenProvidingInvalidInformationAtGeneralInformationPageData = excelUtils.getDataFromExcel(
-				"D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AddProductFail");
+				"D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AddProductFail");
 		return addProductFailWhenProvidingInvalidInformationAtGeneralInformationPageData;
 	}
 	
 	@DataProvider(name = "Add Product Fail When Providing Invalid Information At Detail Information Page", indices = {8,9,10,11,12,13, 17})
 	public String[][] addProductFailWhenProvidingInvalidInformationAtDetailInformationPage() throws IOException {
 		String[][] addProductFailWhenProvidingInvalidInformationAtDetailInformationPageData = excelUtils.getDataFromExcel(
-				"D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AddProductFail");
+				"D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AddProductFail");
 		return addProductFailWhenProvidingInvalidInformationAtDetailInformationPageData;
 	}
 	@Test(description = "Add Product With One Size Successfully", dataProvider = "Add Product Successfully", priority = 3, groups="main")
@@ -82,7 +82,7 @@ public class AddProductPageTest extends TestCase {
 			String additionalPicture3, String additionalPicture4, String name, String categoryID, String material,
 			String description, String productID, String size, String quantity, String price) {
 		AddProductPage addProductPage = new AddProductPage(driver);
-		addProductPage.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/add_basic.php");
+		addProductPage.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/add_basic.php");
 		addProductPage.sendKeysAtGeneralPage(picture, additionalPicture1, additionalPicture2, additionalPicture3, additionalPicture4, name, categoryID, material, description);
 clickOnElemnet(addProductPage.btnContinue);
 addProductPage.sendKeysAtDetailsPage(productID, size, quantity, price);
@@ -97,7 +97,7 @@ assertEquals(checkVisibility, true);
 			String additionalPicture3, String additionalPicture4, String name, String categoryID, String material,
 			String description, String productID, String size, String quantity, String price) {
 		AddProductPage addProductPage = new AddProductPage(driver);
-		addProductPage.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/add_basic.php");
+		addProductPage.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/add_basic.php");
 		addProductPage.sendKeysAtGeneralPage(picture, additionalPicture1, additionalPicture2, additionalPicture3, additionalPicture4, name, categoryID, material, description);
 clickOnElemnet(addProductPage.btnContinue);
 addProductPage.sendKeysAtDetailsPage(productID, size, quantity, price);
@@ -134,7 +134,7 @@ assertEquals(checkVisibility, true);
 			String price, String expectedResult) {
 		AddProductPage addProductPage = new AddProductPage(driver);
 		clickOnElemnet(addProductPage.btnAddProduct);
-		addProductPage.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/add_details.php");
+		addProductPage.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/add_details.php");
 		addProductPage.sendKeysAtDetailsPage(productID, size, quantity, price);
 		String actualMessage = null;
 		if (productID.equals("")) {
@@ -154,7 +154,7 @@ assertEquals(checkVisibility, true);
 			String price, String expectedResult) {
 		AddProductPage addProductPage = new AddProductPage(driver);
 		clickOnElemnet(addProductPage.btnAddProduct);
-//		addProductPage.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/add_basic.php");
+//		addProductPage.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/add_basic.php");
 		addProductPage.sendKeysAtGeneralPage02(picture, name, categoryID, material, description);
 		clickOnElemnet(addProductPage.btnContinue);
 		String actualMessage = driver.findElement(addProductPage.lblErrorMessage).getText();
@@ -167,7 +167,7 @@ assertEquals(checkVisibility, true);
 			String price, String expectedResult) {
 		AddProductPage addProductPage = new AddProductPage(driver);
 		clickOnElemnet(addProductPage.btnAddProduct);
-		addProductPage.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/add_details.php");
+		addProductPage.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/add_details.php");
 		addProductPage.sendKeysAtDetailsPage(productID, size, quantity, price);
 		clickOnElemnet(addProductPage.btnSave);
 		String actualMessage = driver.findElement(addProductPage.lblErrorMessage).getText();
@@ -180,7 +180,7 @@ assertEquals(checkVisibility, true);
 			String description, String productID, String size, String quantity, String price) {
 		AddProductPage addProductPage= new AddProductPage(driver);
 		clickOnElemnet(addProductPage.btnAddProduct);
-//		addProductPage.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/add_basic.php?error=Ch%C6%B0a%20Th%C3%AAm%20%E1%BA%A2nh%20B%C3%ACa");
+//		addProductPage.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/add_basic.php?error=Ch%C6%B0a%20Th%C3%AAm%20%E1%BA%A2nh%20B%C3%ACa");
 		addProductPage.sendKeysAtGeneralPage02(picture, name, categoryID, material, description);
 		clickOnElemnet(addProductPage.btnCancel);
 		String currentURL= driver.getCurrentUrl();
@@ -192,7 +192,7 @@ assertEquals(checkVisibility, true);
 			String additionalPicture3, String additionalPicture4, String name, String categoryID, String material,
 			String description, String productID, String size, String quantity, String price) {
 		AddProductPage addProductPage= new AddProductPage(driver);
-        addProductPage.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/add_details.php");
+        addProductPage.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/add_details.php");
 		addProductPage.sendKeysAtDetailsPage(productID, size, quantity, price);
 		clickOnElemnet(addProductPage.btnCancel02);
 		String currentURL= driver.getCurrentUrl();

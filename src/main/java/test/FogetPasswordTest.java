@@ -22,7 +22,7 @@ public class FogetPasswordTest extends TestCase {
 	@Test(description = "Navigate To Forget Password Page", priority = 1)
 	public void navigateToLogInPage() {
 		ForgetPasswordPage forgetPass= new ForgetPasswordPage(driver);
-		forgetPass.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		forgetPass.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 		clickOnElemnet(forgetPass.btnForgetPassword);
 		String currentURL=driver.getCurrentUrl();
 		assertTrue(currentURL.contains("forget-password.php"));
@@ -30,14 +30,14 @@ public class FogetPasswordTest extends TestCase {
 	
 @DataProvider (name="Forget Password Successfully")
 public String[][] forgetPasswordSuccessfullyData() throws IOException { 
-	String [][]forgetPasswordFailData = excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ForgetPasswordSuccessfully"); 
+	String [][]forgetPasswordFailData = excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ForgetPasswordSuccessfully"); 
 return forgetPasswordFailData;
 }
 
 @Test(description = "Retrieve Password Successfully", dataProvider = "Forget Password Successfully", priority = 2, groups={"main"})
 public void retrievePasswordSuccessfully(String email, String phoneNumber) {
 	ForgetPasswordPage forgetPass= new ForgetPasswordPage(driver);
-	forgetPass.navigateToPage("http://localhost:8080/HemDecor/user_account/forget-password.php");
+	forgetPass.navigateToPage("http://localhost:8081/HemDecor/user_account/forget-password.php");
 	forgetPass.sendKeys(email, phoneNumber);
 	clickOnElemnet(forgetPass.btnRetrievePassword);
 	boolean check=checkElementVisibility(forgetPass.lblSuccessfulMessage);
@@ -46,14 +46,14 @@ public void retrievePasswordSuccessfully(String email, String phoneNumber) {
 
 @DataProvider (name="Forget Password When Provide Wrong Email Or Phone Number", indices = {0,1})
 public String[][] forgetPasswordFailWhenProvideEmailOrPhoneNumberData() throws IOException { 
-	String [][]forgetPasswordFailData = excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ForgetPasswordFail"); 
+	String [][]forgetPasswordFailData = excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ForgetPasswordFail"); 
 return forgetPasswordFailData;
 }
 
 @Test(description = "Forget Password When Provide Wrong Email Or Phone Number", dataProvider = "Forget Password When Provide Wrong Email Or Phone Number", priority = 3, groups="validation")
 public void retrievePasswordFailWhenProvideWrongEmailOrPhoneNumber(String email, String phoneNumber, String expectedMessage) {
 	ForgetPasswordPage forgetPass= new ForgetPasswordPage(driver);
-	forgetPass.navigateToPage("http://localhost:8080/HemDecor/user_account/forget-password.php");
+	forgetPass.navigateToPage("http://localhost:8081/HemDecor/user_account/forget-password.php");
 	forgetPass.sendKeys(email, phoneNumber);
 	clickOnElemnet(forgetPass.btnRetrievePassword);
 	String actualMessage=driver.findElement(forgetPass.lblErrorMessage).getText();

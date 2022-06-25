@@ -24,11 +24,11 @@ public class TestBase {
 	public WebDriver driver;
 public void openSingleBrowser(String browser) {
 	if(browser.equalsIgnoreCase("chrome")) {
-		System.setProperty("webdriver.chrome.driver", "D:\\Automation Test\\02Projects\\HemDecor\\driver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\AutomationTest\\02Projects\\HemDecor\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 }
 	else if(browser.equalsIgnoreCase("edge")) {
-		System.setProperty("webdriver.edge.driver", "D:\\Automation Test\\02Projects\\HemDecor\\driver\\msedgedriver.exe");
+		System.setProperty("webdriver.edge.driver", "D:\\AutomationTest\\02Projects\\HemDecor\\driver\\msedgedriver.exe");
 		driver = new EdgeDriver();
 }
 	driver.manage().window().maximize();

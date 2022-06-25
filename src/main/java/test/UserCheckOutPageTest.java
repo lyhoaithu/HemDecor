@@ -20,7 +20,7 @@ public class UserCheckOutPageTest extends TestCase{
 	@Parameters({ "phoneNumber", "password" })
 	public void preCondition(String phoneNumber, String password) {
 		LogInPage logIn = new LogInPage(driver);
-		logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 		logIn.sendKeys(phoneNumber, password);
 		clickOnElemnet(logIn.btnLogIn);
 		clickOnElemnet(By.xpath("//a[contains(@href,'view_cart')]"));
@@ -29,7 +29,7 @@ public class UserCheckOutPageTest extends TestCase{
 	
 	@DataProvider(name= "Create Order Successfully Data")
 	public String [][]successfullyData() throws IOException {
-		String [][] successfullyData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "UserCreateOrderSuccessfully");
+		String [][] successfullyData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "UserCreateOrderSuccessfully");
 return successfullyData;
 	}
 	
@@ -48,7 +48,7 @@ public void createOrderSuccessfully(String name, String phone, String address, S
 	
 	@DataProvider(name= "Create Order Fail When Provide Invalid Data", indices = {0,1,2,3,4})
 	public String [][]inavlidData() throws IOException {
-		String [][] invalidData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "UserCreateOrderFail");
+		String [][] invalidData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "UserCreateOrderFail");
 return invalidData;
 	}
 	
@@ -65,7 +65,7 @@ public void createOrderWhenProvideInvalidData(String name, String phone, String 
 	
 	@DataProvider(name= "Create Order Fail When Leave Field Blank", indices = {5,6,7})
 	public String [][]fieldBlankData() throws IOException {
-		String [][] fieldBlankData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "UserCreateOrderFail");
+		String [][] fieldBlankData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "UserCreateOrderFail");
 return fieldBlankData;
 	}
 	
@@ -97,7 +97,7 @@ return fieldBlankData;
 		clickOnElemnet(userCheckOutPage.rbCOD);
 		clickOnElemnet(userCheckOutPage.btnCancel);
 		String currentURL= driver.getCurrentUrl();
-		assertEquals(currentURL, "http://localhost:8080/HemDecor/user_cart/view_cart.php");
+		assertEquals(currentURL, "http://localhost:8081/HemDecor/user_cart/view_cart.php");
 	}
 	
 	@Test(description = "Validate create order fail when don't choose payment method")

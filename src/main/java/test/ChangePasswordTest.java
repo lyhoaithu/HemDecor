@@ -28,7 +28,7 @@ public class ChangePasswordTest extends TestCase {
 	@Parameters({"phoneNumber", "password"})
 	public void preCondition(String phoneNumber, String password) {
 		LogInPage logIn= new LogInPage(driver);
-		logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 		logIn.sendKeys(phoneNumber, password);
 		clickOnElemnet(logIn.btnLogIn);
 		hoverMouse(By.xpath("/html/body/header/div/div/a"));
@@ -39,7 +39,7 @@ public class ChangePasswordTest extends TestCase {
 //	@Parameters({"phoneNumber01", "password02"})
 //	public void preConditionFail(String phoneNumber, String password) {
 //		LogInPage logIn= new LogInPage(driver);
-//		logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+//		logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 //		logIn.sendKeys(phoneNumber, password);
 //		clickOnElemnet(logIn.btnLogIn);
 //		hoverMouse(By.xpath("/html/body/header/div/div/a"));
@@ -51,7 +51,7 @@ public class ChangePasswordTest extends TestCase {
 		ExcelUtils excelUtils= new ExcelUtils();
 		String [][] data= null;
 		try {
-			data= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ChangePasswordSuccessfully");
+			data= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ChangePasswordSuccessfully");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,7 +66,7 @@ return data;
 		ExcelUtils excelUtils= new ExcelUtils();
 		String [][] data= null;
 		try {
-			data= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ChangePasswordFail");
+			data= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ChangePasswordFail");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -80,7 +80,7 @@ return data;
 		ExcelUtils excelUtils= new ExcelUtils();
 		String [][] data= null;
 		try {
-			data= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ChangePasswordFail");
+			data= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ChangePasswordFail");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -92,7 +92,7 @@ return data;
 	@Test(description = "Change Password Successfully", dataProvider = "Change Password Successfully", groups={"main"})
 	public void changePasswordSuccessfully(String oldPass, String newPass, String confirmPass, String result) throws IOException {	
 		ChangePasswordPage changePass= new ChangePasswordPage(driver);
-//		changePass.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+//		changePass.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 //		changePass.preCondition("0962370612", "Hoaithu*2811");
 		changePass.sendKeys(oldPass, newPass, confirmPass);
 		clickOnElemnet(changePass.btnChangePassword);

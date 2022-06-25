@@ -19,7 +19,7 @@ public class AdminSearchProductPage extends Page {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-public HashMap<String, By> locatorMap = readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "AdminSearchProduct");
+public HashMap<String, By> locatorMap = readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "AdminSearchProduct");
 public By txtSearchBox= locatorMap.get("txtSearchBox");
 public By btnSearch= locatorMap.get("btnSearch");
 public By lblErrorMessage= locatorMap.get("lblErrorMessage");

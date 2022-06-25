@@ -22,7 +22,7 @@ public ExcelUtils excelUtils= new ExcelUtils();
 	@Test(description = "Verify Navigate To Register Page", priority = 1)
 	public void navigateToRegisterPage() {
 		RegisterPage registerPage = new RegisterPage(driver);
-		registerPage.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		registerPage.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 		clickOnElemnet(registerPage.btnDangKy);
 		String currentURL=driver.getCurrentUrl();
 		assertTrue(currentURL.contains("signup.php"));
@@ -31,7 +31,7 @@ public ExcelUtils excelUtils= new ExcelUtils();
 	@Test(description = "System directs To Login Page When Click On Quay Lại", priority = 2, groups="validation")
 	public void clickOnQuayLai() {
 		RegisterPage registerPage = new RegisterPage(driver);
-		registerPage.navigateToPage("http://localhost:8080/HemDecor/user_account/signup.php");
+		registerPage.navigateToPage("http://localhost:8081/HemDecor/user_account/signup.php");
 		clickOnElemnet(registerPage.btnQuayLai);
 		String currentURL = driver.getCurrentUrl();
 		assertTrue(currentURL.contains("login.php"));
@@ -41,7 +41,7 @@ public ExcelUtils excelUtils= new ExcelUtils();
 	public String[][] registerSuccessfullyData() {
 		String[][] registerSuccessfullyData=null;
 		try {
-			registerSuccessfullyData = excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "RegisterSuccessfully");
+			registerSuccessfullyData = excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "RegisterSuccessfully");
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("File Not Found");
@@ -52,7 +52,7 @@ public ExcelUtils excelUtils= new ExcelUtils();
 	@Test(description = "Validate Create Account Successfully", dataProvider = "Register Successfully", priority = 3, groups = "main")
 	public void validateRegisterSuccessfully(String name, String password, String email, String phoneNumber, String expectedMessage) throws IOException {
 		RegisterPage registerPage = new RegisterPage(driver);
-		registerPage.navigateToPage("http://localhost:8080/HemDecor/user_account/signup.php");
+		registerPage.navigateToPage("http://localhost:8081/HemDecor/user_account/signup.php");
 		registerPage.sendKeys(name, password, email, phoneNumber);
 		clickOnElemnet(registerPage.btnRegister);
 		String actualMessage= driver.findElement(registerPage.lblSuccessfulMessage).getText();
@@ -64,7 +64,7 @@ public ExcelUtils excelUtils= new ExcelUtils();
 	public String[][] registerFailData() {
 		String[][] registerFailData= null;
 		try {
-			registerFailData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "RegisterFail");
+			registerFailData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "RegisterFail");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,7 +76,7 @@ return registerFailData;
 	@Test(description = "Validate Create Account Unsuccessfully When Provide Invalid Information", dataProvider = "Register Fail When Provide Invalid Information", priority = 4, groups="validation")
 	public void validateRegisterUnsuccessfully(String userName, String password, String email, String phoneNumber, String result) throws IOException {
 		RegisterPage registerPage = new RegisterPage(driver);
-		registerPage.navigateToPage("http://localhost:8080/HemDecor/user_account/signup.php");
+		registerPage.navigateToPage("http://localhost:8081/HemDecor/user_account/signup.php");
 		registerPage.sendKeys(userName, password, email, phoneNumber);
 		clickOnElemnet(registerPage.btnRegister);
 		if (email.equals("1@")) {
@@ -99,7 +99,7 @@ return registerFailData;
 	@Test(description = "Validate Password Is Hidden When Entered", priority = 6, groups="validation")
 	public void validatePasswordIsHidden() {
 		RegisterPage registerPage = new RegisterPage(driver);
-		registerPage.navigateToPage("http://localhost:8080/HemDecor/user_account/signup.php");
+		registerPage.navigateToPage("http://localhost:8081/HemDecor/user_account/signup.php");
 		fillInPlaceholder(registerPage.txtPassword, "Hoaithu*2811");
 		String type = driver.findElement(registerPage.txtPassword).getAttribute("type");
 		assertEquals(type, "password");
@@ -108,7 +108,7 @@ return registerFailData;
 	@Test(description = "Validate Password Is Showed When Click On Show Password Checkbox", priority = 7, groups="validation")
 	public void validatePasswordIsShowWhenClickOnShowPasswordCheckbox() {
 		RegisterPage registerPage = new RegisterPage(driver);
-		registerPage.navigateToPage("http://localhost:8080/HemDecor/user_account/signup.php");
+		registerPage.navigateToPage("http://localhost:8081/HemDecor/user_account/signup.php");
 		fillInPlaceholder(registerPage.txtPassword, "Hoaithu*2811");
 		clickOnElemnet(registerPage.chbShowPassword);
 		String type = driver.findElement(registerPage.txtPassword).getAttribute("type");
@@ -120,7 +120,7 @@ return registerFailData;
 	public String[][] registerFailData2() {
 		String[][] registerFailData2= null;
 		try {
-			registerFailData2= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "RegisterFail");
+			registerFailData2= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "RegisterFail");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -132,7 +132,7 @@ return registerFailData2;
 	@Test (description = "Validate Register Fail When Leaving Field Blank",  dataProvider = "Validate Create Account Fail When Leaving Field Blank", priority =5, groups="validation" )
 	public void verifyOutcomeMessage(String userName, String password, String email, String phoneNumber, String result ) throws IOException {
 		RegisterPage registerPage = new RegisterPage(driver);
-		registerPage.navigateToPage("http://localhost:8080/HemDecor/user_account/signup.php");
+		registerPage.navigateToPage("http://localhost:8081/HemDecor/user_account/signup.php");
 		registerPage.sendKeys(userName, password, email, phoneNumber);
 		clickOnElemnet(registerPage.btnRegister);
 		String actualMessage= null;

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AdminProductDetailsPage extends Page {
 	
-	public HashMap<String, By> locatorMap= readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx","AdminProductDetails");
+	public HashMap<String, By> locatorMap= readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx","AdminProductDetails");
 	public By btnDelete= locatorMap.get("btnDelete");
 	public By btnEdit= locatorMap.get("btnEdit");
 	public By iconEye= locatorMap.get("iconEye");

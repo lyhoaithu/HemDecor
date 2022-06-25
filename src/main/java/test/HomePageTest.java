@@ -11,7 +11,7 @@ public class HomePageTest extends TestCase {
 @Test(description = "Navigate To Homepage By Clicking On Logo")
 public void navigateToHomepageByShopLogo() {
 	HomePage homePage = new HomePage(driver);
-	homePage.navigateToPage("http://localhost:8080/HemDecor/anon/homepage.php");
+	homePage.navigateToPage("http://localhost:8081/HemDecor/anon/homepage.php");
 	clickOnElemnet(By.xpath("/html/body/header/a[1]"));
 	String currentURL = homePage.getCurrentURL();
 	assertTrue(currentURL.contains("homepage.php"));
@@ -20,7 +20,7 @@ public void navigateToHomepageByShopLogo() {
 @Test(description = "Navigate To Homepage By Clicking On Shop Name")
 public void navigateToHomepageByShopName() {
 	HomePage homePage = new HomePage(driver);
-	homePage.navigateToPage("http://localhost:8080/HemDecor/anon/homepage.php");
+	homePage.navigateToPage("http://localhost:8081/HemDecor/anon/homepage.php");
 	clickOnElemnet(By.className("web_name"));
 	String currentURL = homePage.getCurrentURL();
 	assertTrue(currentURL.contains("homepage.php"));
@@ -29,7 +29,7 @@ public void navigateToHomepageByShopName() {
 @Test(description = "Navigate To Homepage By Clicking On 'Trang Chủ'")
 public void navigateToHomepageByLinkText() {
 	HomePage homePage = new HomePage(driver);
-	homePage.navigateToPage("http://localhost:8080/HemDecor/anon/homepage.php");
+	homePage.navigateToPage("http://localhost:8081/HemDecor/anon/homepage.php");
 	clickOnElemnet(By.xpath("/html/body/header/nav/ul/li[1]/a"));
 	String currentURL = homePage.getCurrentURL();
 	assertTrue(currentURL.contains("homepage.php"));

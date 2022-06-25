@@ -23,7 +23,7 @@ public class LogInPageTest extends TestCase{
 		ExcelUtils excelUtils= new ExcelUtils();
 	    String[][] logInSuccessfullyData=null;
 		try {
-			logInSuccessfullyData = excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx","LogInSuccessfully");
+			logInSuccessfullyData = excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx","LogInSuccessfully");
 		} catch (IOException e) {
 			System.out.println("File Not Found");
 			e.printStackTrace();
@@ -37,7 +37,7 @@ public class LogInPageTest extends TestCase{
 		ExcelUtils excelUtils= new ExcelUtils();
 	    String[][] logInFailData=null;
 		try {
-			logInFailData = excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx","LogInFail");
+			logInFailData = excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx","LogInFail");
 		} catch (IOException e) {
 			System.out.println("File Not Found");
 			e.printStackTrace();
@@ -51,7 +51,7 @@ public class LogInPageTest extends TestCase{
 		ExcelUtils excelUtils= new ExcelUtils();
 	    String[][] logInFailWhenLeaveFieldBlankData=null;
 		try {
-			logInFailWhenLeaveFieldBlankData = excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx","LogInFail");
+			logInFailWhenLeaveFieldBlankData = excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx","LogInFail");
 		} catch (IOException e) {
 			System.out.println("File Not Found");
 			e.printStackTrace();
@@ -63,7 +63,7 @@ public class LogInPageTest extends TestCase{
 	@Test(description = "Login Successfully", dataProvider ="Login Successfully", priority = 1, groups={"main"})
 	public void logInSuccessfully(String username, String password) throws IOException {
 		LogInPage logInPage= new LogInPage(driver);
-		logInPage.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		logInPage.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 		logInPage.sendKeys(username, password);
 		clickOnElemnet(logInPage.btnLogIn);
 		String currentURL= driver.getCurrentUrl();
@@ -73,7 +73,7 @@ public class LogInPageTest extends TestCase{
 	@Test(description = "Login Using Invalid Data", dataProvider ="Login Fail Using Invalid Data", priority = 2, groups="validation")
 	public void logInFailUsingInvalidData(String username, String password, String expectedMessage, String locator) throws IOException {
 		LogInPage logInPage= new LogInPage(driver);	
-		logInPage.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		logInPage.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 		logInPage.sendKeys(username, password);
 		clickOnElemnet(logInPage.btnLogIn);
 		String actualMessage= driver.findElement(logInPage.lblErrorMessage).getText();
@@ -83,7 +83,7 @@ public class LogInPageTest extends TestCase{
 	@Test(description = "Log In Fail When Leave Field Blank", dataProvider ="Login Fail When Leave Field Blank", priority = 3, groups="validation")
 	public void logInFailWhenLeaveFieldBlankData(String username, String password, String expectedMessage, String locator) throws IOException {
 		LogInPage logInPage= new LogInPage(driver);
-		logInPage.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		logInPage.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 				logInPage.sendKeys(username, password);
 				clickOnElemnet(logInPage.btnLogIn);
 				String actualMessage=null;
@@ -99,7 +99,7 @@ public class LogInPageTest extends TestCase{
 	@Test(description = "Validate password is hidden", priority = 4)
 		public void validatePasswordIsHidden() {
 			LogInPage logIn = new LogInPage(driver);
-			logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+			logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 			fillInPlaceholder(logIn.txtPassword, "Hoaithu*2811");
 			String expectedType="password";
 			String actualType= driver.findElement(logIn.txtPassword).getAttribute("type");
@@ -109,7 +109,7 @@ assertEquals(expectedType, actualType);
 	@Test(description = "Validate password is show in text form when clicking on show password checkbox", priority = 5, groups="validation")
 	public void validatePasswordIsShowed() {
 		LogInPage logIn = new LogInPage(driver);
-		logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 		fillInPlaceholder(logIn.txtPassword, "Hoaithu*2811");
 		clickOnElemnet(logIn.chbShowPassword);
 		String expectedType="text";

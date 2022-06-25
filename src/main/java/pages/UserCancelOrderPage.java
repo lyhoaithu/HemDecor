@@ -15,7 +15,7 @@ public class UserCancelOrderPage extends Page {
 	}
 	public ExcelUtils excelUtils = new ExcelUtils();
 	public HashMap<String, By> locatorMap = readLocatorFromExcle(
-			"D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx",
+			"D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx",
 			"UserCancelOrderPage");
 	
 	public By lblOrderStatus = locatorMap.get("lblOrderStatus");

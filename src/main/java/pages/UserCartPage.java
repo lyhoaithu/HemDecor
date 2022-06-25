@@ -14,7 +14,7 @@ public class UserCartPage  extends Page{
 		// TODO Auto-generated constructor stub
 	}
  public ExcelUtils excelUtils = new ExcelUtils();
- public HashMap<String, By> locatorMap = readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "UserCartPage");
+ public HashMap<String, By> locatorMap = readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "UserCartPage");
  public By iconDelete= locatorMap.get("iconDelete");
  public By btnThanhToan= locatorMap.get("btnThanhToan");
  public By lblProductNameAtCart= locatorMap.get("lblProductNameAtCart");

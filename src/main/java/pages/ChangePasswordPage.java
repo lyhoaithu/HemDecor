@@ -16,7 +16,7 @@ public class ChangePasswordPage extends Page {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-	public HashMap<String, By> locatorMap= readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "ChangePassword");
+	public HashMap<String, By> locatorMap= readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "ChangePassword");
     public By txtOldPass= locatorMap.get("txtOldPass"); 
     public By txtNewPass= locatorMap.get("txtNewPass"); 
     public By txtConfirmPass= locatorMap.get("txtConfirmPass"); 
@@ -49,7 +49,7 @@ public void sendKeys(String oldPass, String newPasss, String confirmPass){
 //	ExcelUtils excelUtils= new ExcelUtils();
 //	String [][] data= null;
 //	try {
-//		data= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ChangePassword");
+//		data= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "ChangePassword");
 //	} catch (IOException e) {
 //		// TODO Auto-generated catch block
 //		e.printStackTrace();

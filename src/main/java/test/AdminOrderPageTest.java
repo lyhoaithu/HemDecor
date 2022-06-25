@@ -29,7 +29,7 @@ public class AdminOrderPageTest extends TestCase{
 	@Parameters({"admin", "adminPassword"})
 	public void preCondition(String phoneNumber, String password) {
 		LogInPage logIn= new LogInPage(driver);
-		logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+		logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 		logIn.sendKeys(phoneNumber, password);
 		clickOnElemnet(logIn.btnLogIn);
 		AdminHomePage adminHomePage= new AdminHomePage(driver);
@@ -39,7 +39,7 @@ public class AdminOrderPageTest extends TestCase{
 	
 @DataProvider(name="Verify Order ID")
 public String[][] allOrderIDData() throws IOException {
-	String[][] allOrderIDData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AdminOrderPage");
+	String[][] allOrderIDData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AdminOrderPage");
 return allOrderIDData;
 }
 
@@ -220,7 +220,7 @@ public void navigateToOrderDetailsPage() {
 
 @DataProvider(name="Search Order Successfully Data")
 public String[][] searchOrderData() throws IOException {
-	String[][] searchOrderData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AdminSearchOrderSuccessfully");
+	String[][] searchOrderData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AdminSearchOrderSuccessfully");
 return searchOrderData;
 }
 
@@ -236,7 +236,7 @@ public void searchOrderSuccessfully(String keyword, String query) throws ClassNo
 
 @DataProvider(name="Search Order Fail Data")
 public String[][] searchOrderFailData() throws IOException {
-	String[][] searchOrderData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AdminSearchOrderFail");
+	String[][] searchOrderData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AdminSearchOrderFail");
 return searchOrderData;
 }
 
@@ -302,7 +302,7 @@ public void changeSingleOrderStatusSuccessfully() throws UnsupportedEncodingExce
 	
 
 	LogInPage loginPage= new LogInPage(driver);
-	loginPage.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+	loginPage.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 	loginPage.sendKeys("0962156842","Hienthanh*1903");
 	clickOnElemnet(loginPage.btnLogIn);
 	hoverMouse(By.xpath("/html/body/header/div/div/a"));
@@ -323,7 +323,7 @@ public void changeOrderStatusByClickingOnButton() throws UnsupportedEncodingExce
 	selectDropdownBox(adminOrderPage.ddbOrderStatus, 3);
 	String orderIDAfter= driver.findElement(adminOrderPage.lblOrderID).getText();
 	LogInPage loginPage= new LogInPage(driver);
-	loginPage.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+	loginPage.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 	loginPage.sendKeys("0963566858","Ngocyen*2102");
 	clickOnElemnet(loginPage.btnLogIn);
 	hoverMouse(By.xpath("/html/body/header/div/div/a"));

@@ -11,7 +11,7 @@ public class DeleteProductPage extends Page{
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-public HashMap<String, By> locatorMap= readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx","DeleteProduct");
+public HashMap<String, By> locatorMap= readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx","DeleteProduct");
 public By btnDelete= locatorMap.get("btnDelete");
 public By chbSingleDelete1= locatorMap.get("chbSingleDelete1");
 public By chbDeleteAll= locatorMap.get("chbDeleteAll");

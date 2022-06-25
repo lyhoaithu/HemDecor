@@ -27,7 +27,7 @@ public ExcelUtils excelUtils= new ExcelUtils();
 @Parameters({"admin", "adminPassword"})
 public void preCondition(String phoneNumber, String password) {
 	LogInPage logIn= new LogInPage(driver);
-	logIn.navigateToPage("http://localhost:8080/HemDecor/user_account/login.php");
+	logIn.navigateToPage("http://localhost:8081/HemDecor/user_account/login.php");
 	logIn.sendKeys(phoneNumber, password);
 	clickOnElemnet(logIn.btnLogIn);
 	AdminHomePage adminHomePage= new AdminHomePage(driver);
@@ -36,42 +36,42 @@ public void preCondition(String phoneNumber, String password) {
 
 @DataProvider(name="Validate Search Product At Product List Page Successfully")
 public String[][] searchProductSuccessfully() throws IOException {
-	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "PL_SearchProductSuccessfully");
+	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "PL_SearchProductSuccessfully");
 	return searchProductSuccessfullyData;
 
 }
 
 @DataProvider(name="Validate Search Product At Product List Page When No Product Is Found", indices = {0,1,2,3,4})
 public String[][] searchProductWhenNoProductIsFoundAtProductListPage() throws IOException {
-	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "PL_SearchProductFail");
+	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "PL_SearchProductFail");
 	return searchProductSuccessfullyData;
 
 }
 
 @DataProvider(name="Validate Search Product At Product List Page When Leave Field Blank", indices = {5})
 public String[][] searchProductWhenLeavingFieldBlank() throws IOException {
-	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "PL_SearchProductFail");
+	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "PL_SearchProductFail");
 	return searchProductSuccessfullyData;
 
 }
 
 @DataProvider(name="Validate Search Product At Storage Page Successfully")
 public String[][] searchProductSuccessfullyAtStoragePage() throws IOException {
-	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "SP_SearchProductSuccessfully");
+	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "SP_SearchProductSuccessfully");
 	return searchProductSuccessfullyData;
 
 }
 
 @DataProvider(name="Validate Search Product At Storage Page When No Product Is Found", indices = {0,1,2,3})
 public String[][] searchProductWhenNoProductIsFoundAtStoragePage() throws IOException {
-	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "SP_SearchProductFail");
+	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "SP_SearchProductFail");
 	return searchProductSuccessfullyData;
 
 }
 
 @DataProvider(name="Validate Search Product At Storage Page When Leave Field Blank", indices = {4})
 public String[][] searchProductWhenLeavingFieldBlankAtStoragePage() throws IOException {
-	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "SP_SearchProductFail");
+	String [][] searchProductSuccessfullyData= excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "SP_SearchProductFail");
 	return searchProductSuccessfullyData;
 
 }
@@ -110,7 +110,7 @@ public void validateSearchingProductWhenLeaveFieldBlankAtProductListPage(String 
 @Test(description="Validate Searching Product At Storage Page Successfully", dataProvider="Validate Search Product At Storage Page Successfully", groups="main")
 public void validateSearchingProductSuccessfullyAtStoragePage(String keyword, String result) throws ClassNotFoundException, SQLException {
 	AdminSearchProductPage searchProduct= new AdminSearchProductPage(driver);
-	searchProduct.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/storage.php");
+	searchProduct.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/storage.php");
 	searchProduct.sendKey(keyword);
 	clickOnElemnet(searchProduct.btnSearch);
 	String resultFromDataBase=null;
@@ -124,7 +124,7 @@ public void validateSearchingProductSuccessfullyAtStoragePage(String keyword, St
 @Test(description="Validate Searching Product At Storage Page When No Product Is Found", dataProvider="Validate Search Product At Storage Page When No Product Is Found", groups="validation")
 public void validateSearchingProductWhenNoProductIsFoundAtStoragePage(String keyword, String result) throws ClassNotFoundException, SQLException {
 	AdminSearchProductPage searchProduct= new AdminSearchProductPage(driver);
-	searchProduct.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/storage.php");
+	searchProduct.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/storage.php");
 	searchProduct.sendKey(keyword);
 	clickOnElemnet(searchProduct.btnSearch);
 	String actualErrorMessage= driver.findElement(searchProduct.lblErrorMessage).getText();
@@ -136,7 +136,7 @@ public void validateSearchingProductWhenLeaveFieldBlankAtStoragePage(String keyw
 	AdminSearchProductPage searchProduct= new AdminSearchProductPage(driver);
 	searchProduct.sendKey(keyword);
 	clickOnElemnet(searchProduct.btnSearch);
-	String currentURL=driver.getCurrentUrl();
-	assertEquals(currentURL, result);
+	String message=getHtml5ValidationMessage(searchProduct.txtSearchBox);
+	assertEquals(message, result);
 }
 }

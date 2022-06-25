@@ -20,23 +20,23 @@ public ExcelUtils excelUtils= new ExcelUtils();
 @Test(description = "Validate Navigate To Product Details Page Successfully", groups = "main")
 public void validateNavigateToProductDetailsPageSuccessfully() {
 	AdminProductDetailsPage productDetailsPage= new AdminProductDetailsPage(driver);
-	productDetailsPage.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/manage_category.php");
+	productDetailsPage.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/manage_category.php");
 	clickOnElemnet(productDetailsPage.iconEye);
 	String currentURL= driver.getCurrentUrl();
-	assertEquals(currentURL, "http://localhost:8080/HemDecor/admin_manage_product/product-detail.php?cid=TB/D02");
+	assertEquals(currentURL, "http://localhost:8081/HemDecor/admin_manage_product/product-detail.php?cid=TB/D02");
 
 }
 
 @DataProvider(name="Expected Displayed Information Data")
 public String [][] expectedDisplayedInformationData() throws IOException {
-	String [][] expectedDisplayedInformationData = excelUtils.getDataFromExcel("D:\\Automation Test\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AdminProductDetailsPage");
+	String [][] expectedDisplayedInformationData = excelUtils.getDataFromExcel("D:\\AutomationTest\\02Projects\\HemDecor\\TestData\\AutomationTestData.xlsx", "AdminProductDetailsPage");
 return expectedDisplayedInformationData;
 }
 
 @Test(description = "Validate Displayed Information", dataProvider = "Expected Displayed Information Data" )
 public void validateDisplayedInformation(String categoryID, String categoryName, String material, String description, String query) throws ClassNotFoundException, SQLException {
 	AdminProductDetailsPage productDetailsPage= new AdminProductDetailsPage(driver);
-	productDetailsPage.navigateToPage("http://localhost:8080/HemDecor/admin_manage_product/product-detail.php?cid=OC/D01");
+	productDetailsPage.navigateToPage("http://localhost:8081/HemDecor/admin_manage_product/product-detail.php?cid=OC/D01");
 	
 	//Locator để lấy data mà không trong table từ Screen
 	By [] actualResultData= {productDetailsPage.lblCategoryID, productDetailsPage.lblCategoryName, productDetailsPage.lblMaterial, productDetailsPage.lblDescription}; 

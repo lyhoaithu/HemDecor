@@ -18,7 +18,7 @@ public class AdminOrderPage extends Page {
 
 	
 	public ExcelUtils excelUtils= new ExcelUtils();
-	public HashMap<String, By> locatorMap= readLocatorFromExcle("D:\\Automation Test\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "AdminOrderPage");
+	public HashMap<String, By> locatorMap= readLocatorFromExcle("D:\\AutomationTest\\02Projects\\HemDecor\\Responsitory\\HemDecor_Responsitory.xlsx", "AdminOrderPage");
 	public By lblOrderID= locatorMap.get("lblOrderID");
 	public By txtSearch= locatorMap.get("txtSearch");
 	public By iconSearch = locatorMap.get("iconSearch");
