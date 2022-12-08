@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Run Main Case With Edge">
+
+	<!-- Way 1: Run all test cases in the classes that has groups="main" -->
+	<!-- <parameter name="browser" value="edge" /> <parameter name="phoneNumber" 
+		value="0962370612" /> <parameter name="password" value="Hoaithu*2811" /> 
+		<parameter name="admin" value="HemDecor" /> <parameter name="adminPassword" 
+		value="HemDecor*1234" /> -->
+	<test name="Run main case by default">
+		<groups>
+			<run>
+				<include name="main" />
+			</run>
+		</groups>
+
+		<classes>
+			 <class name="test.HomePageTest" />
+			<class name="test.RegisterPageTest" />
+			<class name="test.LogInPageTest" /> 
+			<class name="test.ChangePasswordTest" />
+		  	<class name="test.LogOutPageTest" />
+			<class name="test.FogetPasswordTest" />
+			<class name="test.UserProductDetailsPageTest" />
+			<class name="test.UserCartPageTest" />
+			<class name="test.UserCheckOutPageTest" />
+			<class name="test.UserCancelOrderPageTest" />
+			<class name="test.AdminSearchProductPageTest" />
+			<class name="test.AdminProductDetailsPageTest" />
+			<class name="test.AdminOrderPageTest" />
+			<class name="test.AddProductPageTest" />
+			<class name="test.DeleteProductPageTest" />
+
+		</classes>
+
+	</test>
+
+	<!-- Way 2: Run particular test case for example "validateRegisterSuccessfully 
+		" -->
+	<!-- <parameter name="browser" value = "edge"/> -->
+	<!-- <test name="Run some particular test cases"> -->
+	<!-- <classes> -->
+	<!-- <class name="test.RegisterPageTest" /> -->
+	<!-- <methods> -->
+	<!-- <include name="validateRegisterSuccessfully"></include> -->
+	<!-- </methods> -->
+	<!-- </classes> -->
+	<!-- </test> -->
+	<!-- SampleTestNG -->
+</suite> <!-- DemoSuite -->

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Run Validation Case With Edge">
+
+	<!-- Way 1: Run all test cases in the classes that has groups="main" -->
+	<parameter name="browser" value="edge" />
+	<parameter name="phoneNumber" value="0962370612" />
+	<parameter name="password" value="Hoaithu*2811" />
+	<parameter name="admin" value="HemDecor" />
+	<parameter name="adminPassword" value="HemDecor*1234" />
+	<test name="Run validation case by default">
+		
+
+		<classes>
+			<class name="test.AdminEditProductPageTest" />
+
+			
+		</classes>
+
+	</test>
+
+
+	<!-- SampleTestNG -->
+</suite> <!-- DemoSuite -->
